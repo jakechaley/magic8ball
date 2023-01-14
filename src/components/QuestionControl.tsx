@@ -1,17 +1,23 @@
+
 import React from "react";
 
 
 class QuestionControl extends React.Component {
   constructor(props: string) {
     super(props);
-    this.state = {}
+    this.state = {
+      answer: null
+    }
   }
   
   
   handleClick = () => {
     const answersArray = ['yes', 'no', 'maybe', 'absolutely not', 'looking positive']
     const random = Math.floor(Math.random() * answersArray.length);
-    console.log(random, answersArray[random]);
+    this.setState({
+      answer: answersArray[random]
+    });
+    
   }
 
   render() {
@@ -19,6 +25,7 @@ class QuestionControl extends React.Component {
       <React.Fragment>
         <input type="text" placeholder="Ask Me a Question" required/>
         <button onClick={this.handleClick} >Give Me an Answer</button>
+        <div>{this.state.answer}</div>
       </React.Fragment>
     );
   }
