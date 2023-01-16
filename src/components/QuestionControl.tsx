@@ -2,11 +2,11 @@
 import React from "react";
 
 
-class QuestionControl extends React.Component {
+class QuestionControl extends React.Component <{}, {answer: string }> {
   constructor(props: string) {
     super(props);
     this.state = {
-      answer: null
+      answer: ""
     }
   }
   
